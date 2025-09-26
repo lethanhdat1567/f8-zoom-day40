@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/reset.css" />
+        <link rel="stylesheet" href="./styles/redux.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="content">
+            <h1 class="title">Ứng dụng đếm số</h1>
+            <div class="counter"><span class="number">-</span></div>
+            <div class="btns">
+                <button class="btn increase">Increase</button>
+                <button class="btn reset">Reset</button>
+                <button class="btn decrease">Decrease</button>
+            </div>
+            <button class="btn full remove-listener">Remove Listener</button>
+        </div>
+        <script src="./redux.js" type="module"></script>
+        <script type="module">
+            import { createStore } from "./redux.js";
+
+            const number = document.querySelector(".number");
+            const increaseBtn = document.querySelector(".increase");
+            const resetBtn = document.querySelector(".reset");
+            const decreaseBtn = document.querySelector(".decrease");
+            const removeListenerBtn =
+                document.querySelector(".remove-listener");
+
+            const initState = 0;
+
+            // Reducer
+            function reducer(state, action) {
+                switch (action.type) {
+                    case "increase": {
+                        return state + 1;
+                    }
+                    case "reset": {
+                        return 0;
+                    }
+                    case "decrease": {
+                        return state - 1;
+                    }
+                    default:
+                        return state;
+                }
+            }
+
+            const { getState, dispatch, subscribe } = createStore(
+                reducer,
+                initState
+            );
+
+            // Subscribe
+            const unSubscribe = subscribe(renderNumber);
+
+            function renderNumber() {
+                number.textContent = getState();
+            }
+            renderNumber();
+
+            // Button action
+            increaseBtn.onclick = () => {
+                dispatch({ type: "increase" });
+                logState("increase");
+            };
+            decreaseBtn.onclick = () => {
+                dispatch({ type: "decrease" });
+                logState("decrease");
+            };
+            resetBtn.onclick = () => {
+                dispatch({ type: "reset" });
+                logState("reset");
+            };
+            removeListenerBtn.onclick = () => {
+                unSubscribe();
+            };
+
+            // Log state
+            function logState(type) {
+                console.log(`[${type}] State thay đổi: `, getState());
+            }
+        </script>
+    </body>
+</html>
