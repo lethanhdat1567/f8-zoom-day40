@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import DefaultLayout from "../../layouts";
 import TaskList from "../../pages/TaskList";
 import NewTask from "../../pages/NewTask";
