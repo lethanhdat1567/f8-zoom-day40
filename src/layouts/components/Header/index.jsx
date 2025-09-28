@@ -14,7 +14,7 @@ function Header() {
             </h1>
             <nav className={cx("nav")}>
                 <a
-                    href="http://localhost:5173/redux.html"
+                    href="/redux.html"
                     className={cx("nav-item")}
                     target="_blank"
                 >
