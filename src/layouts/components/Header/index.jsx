@@ -14,7 +14,7 @@ function Header() {
             </h1>
             <nav className={cx("nav")}>
                 <a
-                    href="/redux.html"
+                    href="https://lethanhdat1567.github.io/f8-zoom-day40/redux.html"
                     className={cx("nav-item")}
                     target="_blank"
                 >
