@@ -1,25 +1,28 @@
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
+import { Link, useNavigate } from "react-router";
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const navigate = useNavigate();
+
     return (
         <header className={cx("header")}>
-            <h1 className={cx("title")}>DatLee Website</h1>
+            <h1 className={cx("title")} onClick={() => navigate("/")}>
+                DatLee Website
+            </h1>
             <nav className={cx("nav")}>
-                <a href="#home" className={cx("nav-item")}>
-                    Home
+                <a
+                    href="http://localhost:5173/redux.html"
+                    className={cx("nav-item")}
+                    target="_blank"
+                >
+                    Redux
                 </a>
-                <a href="#about" className={cx("nav-item")}>
-                    About
-                </a>
-                <a href="#services" className={cx("nav-item")}>
-                    Services
-                </a>
-                <a href="#contact" className={cx("nav-item")}>
-                    Contact
-                </a>
+                <Link to={"/"} className={cx("nav-item")}>
+                    Redux React
+                </Link>
             </nav>
         </header>
     );

@@ -25,9 +25,33 @@ const reducer = (state = initState, action) => {
         case "DELETE_TASK": {
             return {
                 ...state,
-                tasks: state.tasks.filter(
-                    (task) => task.id !== action.payload.id
-                ),
+                tasks: state.tasks.filter((task) => task.id !== action.payload),
+            };
+        }
+        // Loading
+        case "SET_LOADING": {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case "REMOVE_LOADING": {
+            return {
+                ...state,
+                loading: false,
+            };
+        }
+        // Error
+        case "SET_ERROR": {
+            return {
+                ...state,
+                error: action.payload,
+            };
+        }
+        case "DELETE_ERROR": {
+            return {
+                ...state,
+                error: null,
             };
         }
         default: {

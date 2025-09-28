@@ -27,7 +27,8 @@ const useSelector = (selector) => {
 
 const useDispatch = () => {
     const store = useContext(Context);
-    return store.dispatch();
+
+    return store.dispatch;
 };
 
 export { useStore, useSelector, useDispatch };

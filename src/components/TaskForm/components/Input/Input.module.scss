@@ -3,6 +3,15 @@
     flex-direction: column;
     gap: 6px;
 
+    &.error {
+        .label {
+            color: red;
+        }
+        .input {
+            border-color: red;
+        }
+    }
+
     .label {
         font-size: 18px;
         font-weight: 500;
@@ -10,14 +19,20 @@
 
     .input {
         outline: none;
-        border: 2px solid transparent;
+        border: 2px solid #ccc;
         background-color: #fff;
-        padding: 10px;
-        border-radius: 6px;
+        padding: 8px;
+        border-radius: 8px;
         transition: ease 0.4s;
 
         &:focus {
-            border-color: #ccc;
+            border-color: #949494;
         }
     }
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-left: 2px;
 }
