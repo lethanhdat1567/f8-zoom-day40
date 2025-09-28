@@ -1,0 +1,23 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .label {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .input {
+        outline: none;
+        border: 2px solid transparent;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 6px;
+        transition: ease 0.4s;
+
+        &:focus {
+            border-color: #ccc;
+        }
+    }
+}
